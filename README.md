@@ -120,8 +120,7 @@ While data hiding focuses on restricting data use in a program to assure data se
 
 In JavaScript, closures are the primary mechanism used to enable data privacy. When you use closures for data privacy, the enclosed variables are only in scope within the containing (outer) function. You can't get at the data from an outside scope except through the object's privileged methods. In JavaScript, any exposed method defined within the closure scope is privileged. 
 
-*/
-- 
+*/ - 
 - const getSecret = (secret) => {
 -   return {
 -     get: () => secret
