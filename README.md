@@ -9,6 +9,8 @@ Nest functions wich remembers a set of variables that they can access no matter 
 ## An example of closure.
 
 */
+
+- 
 - function crearContador() {
 - let contador = 0; // La variable contador está vinculada a la función incrementar.
 - 
@@ -19,7 +21,8 @@ Nest functions wich remembers a set of variables that they can access no matter 
 - }
 - 
 - const contador1 = crearContador();
-- contador1(); 
+- contador1();
+
 /*
 
 ## What is ()() in code?
@@ -32,7 +35,25 @@ Double-parentheses, refers to code that immediately invokes the return value of 
 Other way is, if one of the function arguments is, itself, a function call. Code that looks like this:
 - withStuff( getthing() )( stuff )
 
-## Move the variable after the closure (the function inside the function) and explain what happens. 
+## Move the variable after the closure (the function inside the function) and explain what happens.
+
+What happen is that the function contador1 wont have acces to the value contador.
+
+*/
+
+- let contador = 0;
+- function crearContador() {
+- 
+- return function incrementar(){
+- contador = contador + 1;
+- return contador;
+- }
+- }
+- 
+- const contador1 = crearContador();
+- contador1();
+
+/*
 
 ## Change var for let and explain why the logic is not affected:
 
