@@ -78,8 +78,6 @@ let allows you to declare variables that are limited to the scope of a block sta
 - }
 - 
 - return displayInfo() 
-- 
-- 
 - displayIntroduction() // My Name is JOana, I`m from Brazil and I speak Brazilian portuguese.
 /*
 
@@ -93,7 +91,11 @@ When the constant is not found in the local scope javascript reaches to the pare
 
 Also know that since the global execution context is the top context the outer points to null, so if the variable wasn't there it would be implicitly declared, if not in strict mode, or an error would be returned.
 
-## They are conflicts between the closure and the global scope? 
+## They are conflicts between the closure and the global scope?
+
+A scope in JavaScript defines what variables you have access to. There are two kinds of scope – global scope and local scope. If a variable is declared outside all functions or curly braces ({}), it is said to be defined in the global scope. Once you’ve declared a global variable, you can use that variable anywhere in your code, even in functions.
+
+When you declare a variable in a function, you can only access it in the function. These variables are said to be scoped to the function. If you define any inner function within another function, this inner function is called a closure.
 
 ## Advantages of closures.
 As we all know variables which we create inside function have local scope and only accessible in side the function not outside the function. 
@@ -114,7 +116,36 @@ Data hiding is the ability of objects to shield variables from external access. 
 
 While data hiding focuses on restricting data use in a program to assure data security, data encapsulation focuses on wrapping (or encapsulating) the complex data to present a simpler view to the user. In data hiding, the data has to be defined as private only. In data encapsulation, the data can be public or private
 
-## Give me an example of privacy with closures. 
+## Give me an example of privacy with closures.
+
+In JavaScript, closures are the primary mechanism used to enable data privacy. When you use closures for data privacy, the enclosed variables are only in scope within the containing (outer) function. You can't get at the data from an outside scope except through the object's privileged methods. In JavaScript, any exposed method defined within the closure scope is privileged. 
+
+*/
+- 
+- const getSecret = (secret) => {
+-   return {
+-     get: () => secret
+-   };
+- };
+- 
+- test('Closure for object privacy.', assert => {
+-   const msg = '.get() should have access to the closure.';
+-   const expected = 1;
+-   const obj = getSecret(1);
+- 
+-   const actual = obj.get();
+- 
+-   try {
+-     assert.ok(secret, 'This throws an error.');
+-   } catch (e) {
+-     assert.ok(true, `The secret var is only available
+-       to privileged methods.`);
+-   }
+- 
+-   assert.equal(actual, expected, msg);
+-   assert.end();
+- });
+
 ## What happens if you create two counters with the same closure?
 ## How can we add more functions as a decrement counter? Give an example of it. 
 
