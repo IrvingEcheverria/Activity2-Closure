@@ -44,22 +44,22 @@ let allows you to declare variables that are limited to the scope of a block sta
 ### Example:
 
 */
-const language = 'brazillian portuguese'
-const name = 'Ana'
-
-function displayIntroduction() {
-  const name = 'Maria'
-  const country = 'Brazil'
-
-  function displayInfo() {
-    const name = 'Joana'
-    console.log(`My name is ${name}, I'm from ${country} and I speak ${language}`)
-  }
-
-  return displayInfo() 
-}
-
-displayIntroduction() // My Name is JOana, I`m from Brazil and I speak Brazilian portuguese.
+- const language = 'brazillian portuguese'
+- const name = 'Ana'
+- 
+- function displayIntroduction() {
+- const name = 'Maria'
+- const country = 'Brazil'
+- 
+- function displayInfo() {
+-   const name = 'Joana'
+-   console.log(`My name is ${name}, I'm from ${country} and I speak ${language}`)
+- }
+- 
+- return displayInfo() 
+- 
+- 
+- displayIntroduction() // My Name is JOana, I`m from Brazil and I speak Brazilian portuguese.
 /*
 
 Execution context is an environment in which javascript code is evaluated and executed. When the code first starts running it creates a global execution context and a function execution context is created on each function invocation. The scope chain of this code looks similar to this:
